@@ -209,6 +209,10 @@ collections:
     output: true
   teachings:
     output: true
+  pastelli:
+    defaults: 
+      layout: post
+    output: true
 
 # -----------------------------------------------------------------------------
 # Jekyll settings
