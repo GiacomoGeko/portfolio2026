@@ -1,0 +1,88 @@
+---
+layout: default
+---
+
+<div class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">
+      {{ page.title }}
+    </h1>
+
+    {% if page.description %}
+      <p class="post-description">
+        {{ page.description }}
+      </p>
+    {% endif %}
+  </header>
+
+  <article>
+
+    {% assign coins = site.coins | sort: "year" | reverse %}
+
+    <div class="row">
+
+      {% for coin in coins %}
+
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+
+          <a
+            href="{{ coin.url | relative_url }}"
+            class="text-decoration-none"
+          >
+
+            <div class="card h-100 shadow-sm">
+
+              {% if coin.obverse %}
+
+                <div class="card-img-top text-center p-3">
+
+                  <img
+                    src="{{ coin.obverse | relative_url }}"
+                    alt="{{ coin.title }}{% if coin.year %} {{ coin.year }}{% endif %}"
+                    class="img-fluid"
+                    loading="lazy"
+                  >
+
+                </div>
+
+              {% endif %}
+
+              <div class="card-body">
+
+                <h5 class="card-title">
+                  {{ coin.title }}
+                </h5>
+
+                {% if coin.year %}
+                  <p class="card-text mb-1">
+                    <strong>{{ coin.year }}</strong>
+                  </p>
+                {% endif %}
+
+                {% if coin.country %}
+                  <p class="card-text mb-1">
+                    {{ coin.country }}
+                  </p>
+                {% endif %}
+
+                {% if coin.denomination %}
+                  <p class="card-text text-muted mb-0">
+                    {{ coin.denomination }}
+                  </p>
+                {% endif %}
+
+              </div>
+
+            </div>
+
+          </a>
+
+        </div>
+
+      {% endfor %}
+
+    </div>
+
+  </article>
+</div>
