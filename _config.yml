@@ -213,6 +213,9 @@ collections:
     defaults: 
       layout: post
     output: true
+  coins:
+    output: true
+    permalink: /coins/:path/
 
 # -----------------------------------------------------------------------------
 # Jekyll settings
