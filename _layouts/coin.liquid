@@ -3,137 +3,284 @@ layout: default
 ---
 
 <div class="post">
-  <header class="post-header">
-    <h1 class="post-title">
-      {{ page.title }}
-    </h1>
+  <header class="post-header mb-5">
+    <h1 class="post-title mb-2">{{ page.title }}</h1>
 
     {% if page.subtitle %}
-      <p class="post-description">{{ page.subtitle }}</p>
+      <p class="post-description mb-0">{{ page.subtitle }}</p>
     {% endif %}
   </header>
 
   <article>
-    <div class="row">
-      <!-- Immagini -->
-      <div class="col-md-6 mb-4">
-        {% if page.obverse %}
-          <div class="text-center mb-4">
-            <h5>Fronte</h5>
-            <img
-              src="{{ page.obverse | relative_url }}"
-              alt="{{ page.title }} - fronte"
-              class="img-fluid rounded shadow-sm"
-            >
-          </div>
-        {% endif %}
 
-        {% if page.reverse %}
-          <div class="text-center">
-            <h5>Retro</h5>
-            <img
-              src="{{ page.reverse | relative_url }}"
-              alt="{{ page.title }} - retro"
-              class="img-fluid rounded shadow-sm"
-            >
-          </div>
-        {% endif %}
+    <!-- ========================================================= -->
+    <!-- IMMAGINI + INFORMAZIONI                                   -->
+    <!-- ========================================================= -->
+
+    <div class="row g-4 align-items-start">
+
+      <!-- Immagini -->
+      <div class="col-lg-7">
+
+        <div class="row g-4">
+
+          {% if page.obverse %}
+            <div class="col-md-6">
+              <div class="coin-image">
+                <h5 class="text-center mb-3">Fronte</h5>
+
+                <div class="text-center">
+                  <img
+                    src="{{ page.obverse | relative_url }}"
+                    alt="{{ page.title }} - fronte"
+                    class="img-fluid rounded shadow-sm"
+                  >
+                </div>
+              </div>
+            </div>
+          {% endif %}
+
+          {% if page.reverse %}
+            <div class="col-md-6">
+              <div class="coin-image">
+                <h5 class="text-center mb-3">Retro</h5>
+
+                <div class="text-center">
+                  <img
+                    src="{{ page.reverse | relative_url }}"
+                    alt="{{ page.title }} - retro"
+                    class="img-fluid rounded shadow-sm"
+                  >
+                </div>
+              </div>
+            </div>
+          {% endif %}
+
+        </div>
+
       </div>
 
-      <!-- Informazioni -->
-      <div class="col-md-6">
-        <div class="card mb-4">
-          <div class="card-body">
-            <h4 class="card-title">Informazioni</h4>
 
-            <dl class="row mb-0">
+      <!-- Informazioni -->
+      <div class="col-lg-5">
+
+        <div class="card shadow-sm border-0">
+          <div class="card-body p-4">
+
+            <h2 class="h4 mb-4">Informazioni</h2>
+
+            <div class="coin-details">
 
               {% if page.country %}
-                <dt class="col-sm-5">Paese</dt>
-                <dd class="col-sm-7">{{ page.country }}</dd>
+                <div class="detail-row">
+                  <span class="detail-label">Paese</span>
+                  <span class="detail-value">{{ page.country }}</span>
+                </div>
               {% endif %}
 
               {% if page.ruler %}
-                <dt class="col-sm-5">Sovrano</dt>
-                <dd class="col-sm-7">{{ page.ruler }}</dd>
+                <div class="detail-row">
+                  <span class="detail-label">Sovrano</span>
+                  <span class="detail-value">{{ page.ruler }}</span>
+                </div>
               {% endif %}
 
               {% if page.year %}
-                <dt class="col-sm-5">Anno</dt>
-                <dd class="col-sm-7">{{ page.year }}</dd>
+                <div class="detail-row">
+                  <span class="detail-label">Anno</span>
+                  <span class="detail-value">{{ page.year }}</span>
+                </div>
               {% endif %}
 
               {% if page.denomination %}
-                <dt class="col-sm-5">Valore</dt>
-                <dd class="col-sm-7">{{ page.denomination }}</dd>
+                <div class="detail-row">
+                  <span class="detail-label">Valore</span>
+                  <span class="detail-value">{{ page.denomination }}</span>
+                </div>
               {% endif %}
 
               {% if page.mint %}
-                <dt class="col-sm-5">Zecca</dt>
-                <dd class="col-sm-7">{{ page.mint }}</dd>
+                <div class="detail-row">
+                  <span class="detail-label">Zecca</span>
+                  <span class="detail-value">{{ page.mint }}</span>
+                </div>
               {% endif %}
 
               {% if page.composition %}
-                <dt class="col-sm-5">Metallo</dt>
-                <dd class="col-sm-7">{{ page.composition }}</dd>
+                <div class="detail-row">
+                  <span class="detail-label">Metallo</span>
+                  <span class="detail-value">{{ page.composition }}</span>
+                </div>
               {% endif %}
 
               {% if page.weight %}
-                <dt class="col-sm-5">Peso</dt>
-                <dd class="col-sm-7">{{ page.weight }} g</dd>
+                <div class="detail-row">
+                  <span class="detail-label">Peso</span>
+                  <span class="detail-value">{{ page.weight }} g</span>
+                </div>
               {% endif %}
 
               {% if page.diameter %}
-                <dt class="col-sm-5">Diametro</dt>
-                <dd class="col-sm-7">{{ page.diameter }} mm</dd>
+                <div class="detail-row">
+                  <span class="detail-label">Diametro</span>
+                  <span class="detail-value">{{ page.diameter }} mm</span>
+                </div>
               {% endif %}
 
               {% if page.edge %}
-                <dt class="col-sm-5">Bordo</dt>
-                <dd class="col-sm-7">{{ page.edge }}</dd>
+                <div class="detail-row">
+                  <span class="detail-label">Bordo</span>
+                  <span class="detail-value">{{ page.edge }}</span>
+                </div>
               {% endif %}
 
               {% if page.condition %}
-                <dt class="col-sm-5">Conservazione</dt>
-                <dd class="col-sm-7">{{ page.condition }}</dd>
+                <div class="detail-row">
+                  <span class="detail-label">Conservazione</span>
+                  <span class="detail-value">{{ page.condition }}</span>
+                </div>
               {% endif %}
 
               {% if page.rarity %}
-                <dt class="col-sm-5">Rarità</dt>
-                <dd class="col-sm-7">{{ page.rarity }}</dd>
+                <div class="detail-row">
+                  <span class="detail-label">Rarità</span>
+                  <span class="detail-value">{{ page.rarity }}</span>
+                </div>
               {% endif %}
 
               {% if page.catalog %}
-                <dt class="col-sm-5">Catalogo</dt>
-                <dd class="col-sm-7">{{ page.catalog }}</dd>
+                <div class="detail-row">
+                  <span class="detail-label">Catalogo</span>
+                  <span class="detail-value">{{ page.catalog }}</span>
+                </div>
               {% endif %}
 
               {% if page.catalog_number %}
-                <dt class="col-sm-5">Numero catalogo</dt>
-                <dd class="col-sm-7">{{ page.catalog_number }}</dd>
+                <div class="detail-row">
+                  <span class="detail-label">Numero catalogo</span>
+                  <span class="detail-value">{{ page.catalog_number }}</span>
+                </div>
               {% endif %}
 
-            </dl>
+            </div>
+
           </div>
         </div>
+
       </div>
+
     </div>
 
-    <!-- Descrizione -->
+
+    <!-- ========================================================= -->
+    <!-- DESCRIZIONE                                               -->
+    <!-- ========================================================= -->
+
     {% if content != "" %}
-      <div class="mt-4">
-        <h2>Descrizione</h2>
-        {{ content }}
-      </div>
+      <section class="mt-5">
+
+        <h2 class="h3 mb-3">Descrizione</h2>
+
+        <div class="coin-description">
+          {{ content }}
+        </div>
+
+      </section>
     {% endif %}
 
-    <!-- Note -->
+
+    <!-- ========================================================= -->
+    <!-- NOTE                                                       -->
+    <!-- ========================================================= -->
+
     {% if page.notes %}
-      <div class="mt-4">
-        <h2>Note</h2>
-        <p>{{ page.notes }}</p>
-      </div>
+      <section class="mt-5">
+
+        <h2 class="h3 mb-3">Note</h2>
+
+        <div class="coin-notes">
+          {{ page.notes }}
+        </div>
+
+      </section>
     {% endif %}
 
   </article>
 </div>
+
+
+<!-- ============================================================= -->
+<!-- STILI                                                         -->
+<!-- ============================================================= -->
+
+<style>
+
+  /* Immagini */
+  .coin-image img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+
+  /* Tabella informazioni */
+  .coin-details {
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .detail-row {
+    display: grid;
+    grid-template-columns: 42% 58%;
+    gap: 1rem;
+
+    padding: 0.75rem 0;
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  .detail-label {
+    font-weight: 600;
+    color: #555;
+  }
+
+  .detail-value {
+    color: #222;
+    text-align: right;
+    overflow-wrap: anywhere;
+  }
+
+
+  /* Descrizione */
+  .coin-description {
+    line-height: 1.7;
+  }
+
+
+  /* Note */
+  .coin-notes {
+    padding: 1rem 1.25rem;
+
+    border-left: 4px solid #dee2e6;
+
+    background: rgba(0, 0, 0, 0.025);
+
+    line-height: 1.7;
+  }
+
+
+  /* Mobile */
+  @media (max-width: 767.98px) {
+
+    .detail-row {
+      grid-template-columns: 1fr;
+      gap: 0.25rem;
+    }
+
+    .detail-value {
+      text-align: left;
+    }
+
+  }
+
+</style>
