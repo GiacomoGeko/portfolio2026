@@ -1,0 +1,139 @@
+---
+layout: default
+---
+
+<div class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      {{ page.title }}
+    </h1>
+
+    {% if page.subtitle %}
+      <p class="post-description">{{ page.subtitle }}</p>
+    {% endif %}
+  </header>
+
+  <article>
+    <div class="row">
+      <!-- Immagini -->
+      <div class="col-md-6 mb-4">
+        {% if page.obverse %}
+          <div class="text-center mb-4">
+            <h5>Fronte</h5>
+            <img
+              src="{{ page.obverse | relative_url }}"
+              alt="{{ page.title }} - fronte"
+              class="img-fluid rounded shadow-sm"
+            >
+          </div>
+        {% endif %}
+
+        {% if page.reverse %}
+          <div class="text-center">
+            <h5>Retro</h5>
+            <img
+              src="{{ page.reverse | relative_url }}"
+              alt="{{ page.title }} - retro"
+              class="img-fluid rounded shadow-sm"
+            >
+          </div>
+        {% endif %}
+      </div>
+
+      <!-- Informazioni -->
+      <div class="col-md-6">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h4 class="card-title">Informazioni</h4>
+
+            <dl class="row mb-0">
+
+              {% if page.country %}
+                <dt class="col-sm-5">Paese</dt>
+                <dd class="col-sm-7">{{ page.country }}</dd>
+              {% endif %}
+
+              {% if page.ruler %}
+                <dt class="col-sm-5">Sovrano</dt>
+                <dd class="col-sm-7">{{ page.ruler }}</dd>
+              {% endif %}
+
+              {% if page.year %}
+                <dt class="col-sm-5">Anno</dt>
+                <dd class="col-sm-7">{{ page.year }}</dd>
+              {% endif %}
+
+              {% if page.denomination %}
+                <dt class="col-sm-5">Valore</dt>
+                <dd class="col-sm-7">{{ page.denomination }}</dd>
+              {% endif %}
+
+              {% if page.mint %}
+                <dt class="col-sm-5">Zecca</dt>
+                <dd class="col-sm-7">{{ page.mint }}</dd>
+              {% endif %}
+
+              {% if page.composition %}
+                <dt class="col-sm-5">Metallo</dt>
+                <dd class="col-sm-7">{{ page.composition }}</dd>
+              {% endif %}
+
+              {% if page.weight %}
+                <dt class="col-sm-5">Peso</dt>
+                <dd class="col-sm-7">{{ page.weight }} g</dd>
+              {% endif %}
+
+              {% if page.diameter %}
+                <dt class="col-sm-5">Diametro</dt>
+                <dd class="col-sm-7">{{ page.diameter }} mm</dd>
+              {% endif %}
+
+              {% if page.edge %}
+                <dt class="col-sm-5">Bordo</dt>
+                <dd class="col-sm-7">{{ page.edge }}</dd>
+              {% endif %}
+
+              {% if page.condition %}
+                <dt class="col-sm-5">Conservazione</dt>
+                <dd class="col-sm-7">{{ page.condition }}</dd>
+              {% endif %}
+
+              {% if page.rarity %}
+                <dt class="col-sm-5">Rarità</dt>
+                <dd class="col-sm-7">{{ page.rarity }}</dd>
+              {% endif %}
+
+              {% if page.catalog %}
+                <dt class="col-sm-5">Catalogo</dt>
+                <dd class="col-sm-7">{{ page.catalog }}</dd>
+              {% endif %}
+
+              {% if page.catalog_number %}
+                <dt class="col-sm-5">Numero catalogo</dt>
+                <dd class="col-sm-7">{{ page.catalog_number }}</dd>
+              {% endif %}
+
+            </dl>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Descrizione -->
+    {% if content != "" %}
+      <div class="mt-4">
+        <h2>Descrizione</h2>
+        {{ content }}
+      </div>
+    {% endif %}
+
+    <!-- Note -->
+    {% if page.notes %}
+      <div class="mt-4">
+        <h2>Note</h2>
+        <p>{{ page.notes }}</p>
+      </div>
+    {% endif %}
+
+  </article>
+</div>
